@@ -24,7 +24,7 @@ jobs:
 
     - name: Build exe with PyInstaller
       run: |
-        pyinstaller --onefile --icon=icon.ico pw-soulkeeper.py
+        pyinstaller --onefile --icon=icon.ico --noconsole pw-soulkeeper.py
 
     - name: Upload exe to artifacts
       uses: actions/upload-artifact@v3
