@@ -27,8 +27,17 @@ jobs:
       run: |
         pyinstaller --onefile --icon=icon.ico pw-soulkeeper.py
 
-    - name: Upload exe to artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: pw-soulkeeper-exe
-        path: dist\pw-soulkeeper.exe
+    - name: Upload exe to GitHub Packages
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+          PACKAGE_NAME=pw-soulkeeper
+          VERSION=1.0.0
+          FILE_PATH=dist/pw-soulkeeper.exe
+          OWNER=${{ github.repository_owner }}
+
+          curl -X POST \
+          -H "Authorization: Bearer $GITHUB_TOKEN" \
+          -H "Content-Type: application/octet-stream" \
+          --data-binary @"$FILE_PATH" \
+          "https://uploads.github.com/orgs/$OWNER/packages/generic/$PACKAGE_NAME/$VERSION/pw-soulkeeper.exe"
