@@ -33,5 +33,4 @@ jobs:
         tag_name: v1.0.0
         name: pw-soulkeeper v1.0.0
         files: dist/pw-soulkeeper.exe
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
