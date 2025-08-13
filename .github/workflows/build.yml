@@ -37,7 +37,7 @@ jobs:
           OWNER=${{ github.repository_owner }}
 
           curl -X POST \
-          -H "Authorization: Bearer $GITHUB_TOKEN" \
-          -H "Content-Type: application/octet-stream" \
-          --data-binary @"$FILE_PATH" \
-          "https://uploads.github.com/orgs/$OWNER/packages/generic/$PACKAGE_NAME/$VERSION/pw-soulkeeper.exe"
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Content-Type: application/octet-stream" \
+            --data-binary @"$FILE_PATH" \
+            "https://uploads.github.com/orgs/$OWNER/packages/generic/$PACKAGE_NAME/$VERSION/pw-soulkeeper.exe"
