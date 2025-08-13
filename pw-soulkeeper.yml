@@ -1,0 +1,12 @@
+characters:
+- name: Name
+  pwd: password
+  role: characterName
+  user: login
+groups:
+- characters:
+  - Name
+  name: GroupName
+settings:
+  client_exe: ElementClient.exe
+  game_path: C:\path_to_element_folder
